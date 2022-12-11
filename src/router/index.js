@@ -6,11 +6,11 @@ import store from '../store'
 Vue.use(Router)
 
 const createRouter = () => new Router({
-    mode: 'history',
+    mode: 'hash',
     routes: [
         {
             path: '/',
-            redirect: '/collapse'
+            redirect: '/chatRoom'
         },
         {
             path: '/collapse',
@@ -26,6 +26,16 @@ const createRouter = () => new Router({
             path: '/popover',
             name: '气泡卡片',
             component: () => import('@/view/popover/Index')
+        },
+        {
+            path: '/echarts',
+            name: 'echarts',
+            component: () => import('@/view/echarts/Index')
+        },
+        {
+            path: '/chatRoom',
+            name: '聊天室',
+            component: () => import('@/view/chatRoom/Index')
         }
     ]
 })

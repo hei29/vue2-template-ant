@@ -1,11 +1,11 @@
 <template>
   <div id="app">
     <!-- <img alt="Vue logo" src="~assets/image/logo.png"> -->
-    <div class="body-left">
-      <SideBar></SideBar>
-    </div>               
+<!--    <div class="body-left">-->
+<!--      <SideBar></SideBar>-->
+<!--    </div>               -->
     <div class="body-right">
-      <BreadCrumb></BreadCrumb>  
+<!--      <BreadCrumb v-if="hide ?? true"></BreadCrumb>  -->
       <div class="router-view">
           <a-spin :spinning="$store.state.loading" size="large" tip="loading...">
             <router-view/>
@@ -19,36 +19,19 @@
 import SideBar from '@/components/sideBar/Index.vue'
 import BreadCrumb from '@/components/breadCrumb/Index.vue'
 
-import {demoRequest} from '@/api'
 
-import {jsonp} from 'vue-jsonp'
 export default {
   name: 'App',
   components: { SideBar, BreadCrumb },
+  data() {
+    return {
+      hide: null
+    }
+  },
   mounted() {
-    // 测试用代码，可参考可删除
-    // demoRequest().then((res) => {
-    //   console.log(res);
-    // }).catch(err => {
-    //   console.error(err.message);
-    // })
-
-    // const URL = '/basic/alertRule/findAlertTypeTree'
-    // jsonp(URL, {output: 'jsonp'}).then(res => {
-    //   const data = res.result
-    //   console.log(res, data);
-    // }) 
-
-    // let str = 'heellp world'
-    // let pattern = /l+/gi
-    // let newStr0 = str.replace(/l|p/g, 'x')
-    // let newStr = pattern.exec(str)
-    // console.log(newStr);
-    // newStr = pattern.exec(str)
-    // console.log(newStr);
-
   },
   methods: {
+
   }
 }
 </script>

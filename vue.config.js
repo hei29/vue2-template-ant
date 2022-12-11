@@ -9,13 +9,14 @@ module.exports = defineConfig({
   // lintOnSave: false, // 关闭eslint校验
   productionSourceMap: false, // 生产环境是否要生成sourceMap
   outputDir: './dist', // 打包路径
+  publicPath:'./',
   chainWebpack: config => {
     config.resolve.alias
       .set('@', resolve('src'))
       .set('assets', resolve('src/assets'))
   },
   devServer: {
-    host: '127.0.0.1',
+    host: '0.0.0.0',
     port: 8000,
     hot: true,
     open: false,

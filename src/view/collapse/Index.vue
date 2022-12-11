@@ -1,5 +1,9 @@
 <template>
     <div class="page-content">
+        <button 
+            v-clipboard:copy="url"
+            v-clipboard:success="onCopy"
+            v-clipboard:error="onError">copy</button>
         <div class="collapse">
             <a-collapse defaultActiveKey="1">
                 <a-collapse-panel key="1" header="一级菜单">
@@ -28,13 +32,18 @@ import { mapGetters, mapMutations, mapState } from 'vuex';
         components: {  },
         data() {
             return {
-
+                url: 'xxx:baidu'
             }
         },
         computed: {
         },
         methods: {
-            
+            onCopy(e) {
+                console.log(e);
+            },
+            onError(e) {
+                console.log(e);
+            }
         }
     }
 </script>
